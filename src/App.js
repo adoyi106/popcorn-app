@@ -154,19 +154,7 @@ function Search({ query, setQuery }) {
     inputEl.current.focus();
     setQuery("");
   });
-  //   useEffect(function(){
-  //     function callback(e){
-  //       if(e.code === "Enter"){
-  //         if (document.activeElement === inputEl.current) return;
-  //         inputEl.current.focus()
-  //         setQuery("")
-
-  //   }
-  // }
-  //     document.addEventListener("keydown",callback)
-  //     return ()=> document.addEventListener("keydown", callback)
-  //   },[])
-
+ 
   return (
     <input
       className="search"
@@ -194,27 +182,7 @@ function Box({ children }) {
   );
 }
 // function WatchedListBox() {
-//   const [watched, setWatched] = useState(tempWatchedData);
-//   const [isOpen2, setIsOpen2] = useState(true);
 
-//   return (
-//     <div className="box">
-//       <button
-//         className="btn-toggle"
-//         onClick={() => setIsOpen2((open) => !open)}
-//       >
-//         {isOpen2 ? "–" : "+"}
-//       </button>
-//       {isOpen2 && (
-//         <>
-//           <WatchedSummary watched={watched} />
-
-//           <WatchedMoviesList watched={watched} />
-//         </>
-//       )}
-//     </div>
-//   );
-//}
 function MoviesList({ movies, onSelectMovie }) {
   return (
     <ul className="list list-movies">
@@ -329,7 +297,8 @@ function MovieDetails({
       async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+          // `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+          `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
         );
         const data = await res.json();
 
